@@ -131,8 +131,8 @@ void main() {
   float fresnel = fresnel(normal, viewDir, 2.0, isToon, toonStep);
 
   // Define amounts for each type of lighting (summing to 1.0)
-  float ambientAmount = 0.0;
-  float hemiAmount = 0.2;
+  float ambientAmount = 0.2;
+  float hemiAmount = 0.0;
   float diffuseAmount = 0.8;
 
   if (!isToon) {
