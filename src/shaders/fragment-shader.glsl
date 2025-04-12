@@ -106,7 +106,7 @@ void main() {
 
   // Determine if model will have toon shading effect
   bool isToon = true; // true if toon effect is desired
-  int numToon = 2;     // number of colors desired for toon effect.
+  int numToon = 3;     // number of colors desired for toon effect.
                        // Code only includes versions for 2 and 3 colors.
 
   float toonStep = 0.7;// Input for fresnel(); determines how much hemi      
@@ -122,6 +122,7 @@ void main() {
   vec3 lightColour = vec3(0.5);
   vec3 diffuse = diffuseLighting(normal, lightDir, lightColour, isToon, numToon);
 
+  // Phong Specular
   vec3 specular = makeSpecular(normal, lightDir, viewDir, 32.0, isToon);
 
   // Enable IBL specular; i.e. reflection of surroundings
@@ -131,8 +132,8 @@ void main() {
   float fresnel = fresnel(normal, viewDir, 2.0, isToon, toonStep);
 
   // Define amounts for each type of lighting (summing to 1.0)
-  float ambientAmount = 0.2;
-  float hemiAmount = 0.0;
+  float ambientAmount = 0.0;
+  float hemiAmount = 0.2;
   float diffuseAmount = 0.8;
 
   if (!isToon) {
